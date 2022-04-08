@@ -10,15 +10,18 @@ for(let i=1; i < limit; i++){
   const box = document.createElement('div');
   box.className = "box";
   box.append(i);
-  console.log(box);
-  container.append(box);
-
-
-  if (!(i % diviThree)){
+  
+  if ((i % diviFive) && !(i % diviThree)){
     box.classList.add("box-mult-3")
-  } else if (!(i % diviFive)){
+    box.innerHTML = ("Buzz")
+    
+  } else if (!(i % diviFive) && (i % diviThree)){
     box.classList.add("box-mult-5")
-  } else if (!(i % (diviFive && diviThree))){
+    box.innerHTML = ("Fizz")
+    
+  } else if (!(i % diviFive) && !(i % diviThree)){
     box.classList.add("box-mult")
+    box.innerHTML = ("BuzzFizz")
   }
+  container.append(box);
 };
